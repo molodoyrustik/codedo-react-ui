@@ -4,11 +4,14 @@ node_js:
 branches:
   only:
     - master
+before_script:
+  - npm install -g firebase-tools
 script:
   - npm install
   - npm run build
-deploy:
-  skip_cleanup: true
-  provider: firebase
-  token:
-    secure: "1/N5Vmg03wuDWPnwUDfX0kfSMkY3z0tvGKluF3KAxQyOE"
+after_success:
+  - firebase deploy --token $FIREBASE_TOKEN
+notifications:
+  email:
+    on_failure: change
+    on_success: change
