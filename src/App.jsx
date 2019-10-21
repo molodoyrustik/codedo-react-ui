@@ -38,7 +38,7 @@ class App extends Component {
 
     return (
       <div className="app">
-        <Header title='Reactagram' />
+        <Header title='Reactagram!!!' />
 
         <section className="content">
           <Settings settings={settings} handleChange={this.handleChange} />
